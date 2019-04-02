@@ -17,7 +17,61 @@ class Character:
         return male_names[randomnumber]
 
     def getOccupation(self):
-        occupations = ["waiter", "lawyer", "accountant"]
+        occupations = [
+        "   Accessory designer",
+        "    Advertising designer",
+        "    Animator",
+        "    Architect",
+        "    Art administrator",
+
+        "    Artisan",
+        "    Arts administration",
+
+        "    Baker",
+        "    Ceramics artist",
+        "    Chief creative officer",
+
+        "    Colorist",
+        "    Concept Artist",
+        "    Curator",
+        "    Dancer",
+        "    Design director",
+        "    Design strategist",
+
+        "    Essayist",
+        "    Event planner",
+        "    Fashion designer",
+        "    Fine artist",
+
+        "    Floral designer",
+
+        "    Graphic designer",
+        "    Hairstylist",
+        "    Illustrator",
+        "    Tattoo artist",
+        "    Interior designer",
+        "    Jewellery designer",
+        "    Lyricist",
+        "    Make-up artist",
+
+        "    Marine designer",
+        "    Media designer",
+        "    Music",
+        "    Party planner",
+        "    Penciller",
+        "    Photographer",
+        "    Photojournalist",
+        "    Potter",
+        "    Production designer",
+        "    Sculptor",
+        "    Set decorator",
+        "    Set dresser",
+        "    Web designer",
+        "    Wedding planner",
+        "    Writer"
+        
+        
+        ]
         randomnumber = randint(0,len(occupations) -1)
         return occupations[randomnumber]
     
@@ -34,8 +88,6 @@ class Character:
         randomnumber = randint(0,len(dreams) -1)
         return dreams[randomnumber] 
 
-
-    
     def getCharacterAge(self):
         return randint(10,90)
 
