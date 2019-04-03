@@ -86,10 +86,20 @@ class Plot:
 
     def ActOne(self):
         sub_plot = True
-        text = """
+        html = True
+        text = ""
+        if html == True:
+            text += "<p>"
+
+        
+        text += """
         This story is set in {} in {}. {} is the protagonist, {} is a {} that has a dream of {} but is scared of {}. 
         """.format(self.setting,self.time_setting, self.protag.name, self.checkGender(self.protag), self.protag.occupation, self.protag.dream, self.protag.fear)
 
+        if html == True:
+            text += "</p><p>"
+        
+      
         #inciding incident
         text += """
         One day, a {} happens which changes everything. {}'s fears of {} are amplified in having to deal with {}. This causes the protagonist great {}.
@@ -97,6 +107,8 @@ class Plot:
 
         """.format(self.inciting_incident[0], self.protag.name, self.protag.fear, self.inciting_incident[1], self.getInitialEmotionalReaction(), self.getInitialEmotionalReaction(), self.protag.name)
         
+        if html == True:
+            text += "/<p><p>"
         #the call to advanture
 
         text += """
@@ -106,6 +118,8 @@ class Plot:
 
         """.format(self.protag.name, self.initial_friend.name, self.initial_friend.occupation, self.initial_friend.name, self.protag.name, self.checkGender(self.initial_friend), self.protag.name, self.getPossessiveGender(self.protag), self.getHeGender(self.protag))
 
+        if html == True:
+            text += "/<p><p>"
 
         #initiation
         text += """
@@ -113,6 +127,9 @@ class Plot:
         {} must continue to face internal and external challenges, slowing approaching the ultimate challenge. 
 
         """.format(self.protag.name, self.protag.name, self.getPossessiveGender(self.protag), self.getHeGender(self.protag), self.getPossessiveGender(self.protag), self.initial_friend.name, self.getHeGender(self.protag))
+
+        if html == True:
+            text += "/<p><p>"
 
         if sub_plot == True:
             text += """
@@ -127,6 +144,9 @@ class Plot:
 
         """.format(self.protag.name, self.enemy.name, self.enemy.occupation, self.enemy.dream, self.enemy.name, self.protag.name, self.getHeGender(self.protag))
 
+        if html == True:
+            text += "/<p><p>"
+
 
         #death and rebirth
         text += """
@@ -134,6 +154,8 @@ class Plot:
 
 
         """.format(self.protag.name, self.getHimself(self.protag), self.getHeGender(self.protag), self.enemy.name)
+        if html == True:
+            text += "/<p><p>"
 
 
         
@@ -142,5 +164,7 @@ class Plot:
         Finally {} is able to return home. Having achieved success at overcoming the ultimate challenge, brining home the lessons to {} family and friends
         and sharing {} gifts with the community. 
         """.format(self.protag.name, self.getPossessiveGender(self.protag), self.getPossessiveGender(self.protag))
+        if html == True:
+            text += "/<p>"
         
         return text
