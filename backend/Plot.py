@@ -3,7 +3,7 @@ from Locations import countries
 from Incidents import inciting_incidents
 from Subplots import sub_plots
 class Plot:
-    def __init__(self, protag, initial_friend, oracle, enemy):
+    def __init__(self, protag, initial_friend, oracle, enemy, title, html):
         
         self.setting = self.getSetting("country")
         self.time_setting = self.getTimeSetting()
@@ -14,6 +14,8 @@ class Plot:
         self.initial_friend = initial_friend
         self.oracle = oracle
         self.enemy = enemy
+        self.title = title
+        self.html = html
 
         #events
         self.inciting_incident = self.getIncitingIncident()
@@ -86,8 +88,15 @@ class Plot:
 
     def ActOne(self):
         sub_plot = True
-        html = True
+        html = self.html
+
+
         text = ""
+
+        if html == True:
+            text += "<h1>{} in {}</h1>".format(self.title, self.setting)
+        else:
+            text += "{} in {}".format(self.title, self.setting)
         if html == True:
             text += "<p>"
 
@@ -102,13 +111,13 @@ class Plot:
       
         #inciding incident
         text += """
-        One day, a {} happens which changes everything. {}'s fears of {} are amplified in having to deal with {}. This causes the protagonist great {}.
+        One day, {} {} which changes everything. {}'s fears of {} are amplified in having to deal with {}. This causes the protagonist great {}.
         {}ed by the event, {} is called into the unknown. Suddenly the comforts of normalcy begin to fade and our protagonist is lost. 
 
-        """.format(self.inciting_incident[0], self.protag.name, self.protag.fear, self.inciting_incident[1], self.getInitialEmotionalReaction(), self.getInitialEmotionalReaction(), self.protag.name)
+        """.format(self.protag.name, self.inciting_incident[0], self.protag.name, self.protag.fear, self.inciting_incident[1], self.getInitialEmotionalReaction(), self.getInitialEmotionalReaction(), self.protag.name)
         
         if html == True:
-            text += "/<p><p>"
+            text += "</p><p>"
         #the call to advanture
 
         text += """
@@ -119,7 +128,7 @@ class Plot:
         """.format(self.protag.name, self.initial_friend.name, self.initial_friend.occupation, self.initial_friend.name, self.protag.name, self.checkGender(self.initial_friend), self.protag.name, self.getPossessiveGender(self.protag), self.getHeGender(self.protag))
 
         if html == True:
-            text += "/<p><p>"
+            text += "</p><p>"
 
         #initiation
         text += """
@@ -129,7 +138,7 @@ class Plot:
         """.format(self.protag.name, self.protag.name, self.getPossessiveGender(self.protag), self.getHeGender(self.protag), self.getPossessiveGender(self.protag), self.initial_friend.name, self.getHeGender(self.protag))
 
         if html == True:
-            text += "/<p><p>"
+            text += "</p><p>"
 
         if sub_plot == True:
             text += """
@@ -145,7 +154,7 @@ class Plot:
         """.format(self.protag.name, self.enemy.name, self.enemy.occupation, self.enemy.dream, self.enemy.name, self.protag.name, self.getHeGender(self.protag))
 
         if html == True:
-            text += "/<p><p>"
+            text += "</p><p>"
 
 
         #death and rebirth
@@ -155,7 +164,7 @@ class Plot:
 
         """.format(self.protag.name, self.getHimself(self.protag), self.getHeGender(self.protag), self.enemy.name)
         if html == True:
-            text += "/<p><p>"
+            text += "</p><p>"
 
 
         
@@ -165,6 +174,6 @@ class Plot:
         and sharing {} gifts with the community. 
         """.format(self.protag.name, self.getPossessiveGender(self.protag), self.getPossessiveGender(self.protag))
         if html == True:
-            text += "/<p>"
+            text += "</p>"
         
         return text

@@ -8,12 +8,17 @@ protagonist = Character()
 initial_friend = Character()
 oracle = Character()
 enemy = Character()
+title = "Adventures of {}".format(protagonist.name)
+html = input("would you like html or txt?")
+if html == "html":
+    html = True
+else:
+    html = False
+plot = Plot(protagonist, initial_friend, oracle, enemy, title, html)
 
-plot = Plot(protagonist, initial_friend, oracle, enemy)
 
-title = "Adventures of {} in {}".format(protagonist.name, plot.setting)
 plot_output = plot.ActOne()
 
 print(plot_output)
-writer = Write(title, plot_output)
+writer = Write(title, plot_output, html)
 writer.writeFile()
