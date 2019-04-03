@@ -1,6 +1,7 @@
 from random import randint
 from Locations import countries
 from Incidents import inciting_incidents
+from Subplots import sub_plots
 class Plot:
     def __init__(self, protag, initial_friend, oracle, enemy):
         
@@ -84,6 +85,7 @@ class Plot:
     #defining the act 
 
     def ActOne(self):
+        sub_plot = True
         text = """
         This story is set in {} in {}. {} is the protagonist, {} is a {} that has a dream of {} but is scared of {}. 
         """.format(self.setting,self.time_setting, self.protag.name, self.checkGender(self.protag), self.protag.occupation, self.protag.dream, self.protag.fear)
@@ -111,6 +113,12 @@ class Plot:
         {} must continue to face internal and external challenges, slowing approaching the ultimate challenge. 
 
         """.format(self.protag.name, self.protag.name, self.getPossessiveGender(self.protag), self.getHeGender(self.protag), self.getPossessiveGender(self.protag), self.initial_friend.name, self.getHeGender(self.protag))
+
+        if sub_plot == True:
+            text += """
+            Along this journey {} undergoes a number of character developemnts through the progression of the subplots which include {} and {}. These test {} ability to understand people and conflict, ensuring character developent in the process.
+
+            """.format(self.protag.name ,sub_plots[randint(0,len(sub_plots) -1)], sub_plots[randint(0,len(sub_plots) -1)], self.getPossessiveGender(self.protag))
 
         #plunging to the depths of the ocean, the whales belly
         text += """
