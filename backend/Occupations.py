@@ -1,30 +1,25 @@
+occupations = [
 "   Accessory designer",
 "    Advertising designer",
 "    Animator",
 "    Architect",
 "    Art administrator",
-
 "    Artisan",
 "    Arts administration",
-
 "    Baker",
 "    Ceramics artist",
 "    Chief creative officer",
-
 "    Colorist",
 "    Concept Artist",
 "    Curator",
 "    Dancer",
 "    Design director",
 "    Design strategist",
-
 "    Essayist",
 "    Event planner",
 "    Fashion designer",
 "    Fine artist",
-
 "    Floral designer",
-
 "    Graphic designer",
 "    Hairstylist",
 "    Illustrator",
@@ -33,7 +28,6 @@
 "    Jewellery designer",
 "    Lyricist",
 "    Make-up artist",
-
 "    Marine designer",
 "    Media designer",
 "    Music",
@@ -49,3 +43,4 @@
 "    Web designer",
 "    Wedding planner",
 "    Writer"
+]

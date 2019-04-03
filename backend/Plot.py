@@ -1,9 +1,10 @@
 from random import randint
-
+from Locations import countries
+from Incidents import inciting_incidents
 class Plot:
     def __init__(self, protag, initial_friend, oracle, enemy):
         
-        self.setting = self.getSetting()
+        self.setting = self.getSetting("country")
         self.time_setting = self.getTimeSetting()
 
      
@@ -19,24 +20,29 @@ class Plot:
 
         
         
-    def getSetting(self):
-        locations = ['Sydney', 'Berlin', 'Minesoda', 'Melbourne', 'San Francisco', 'Paris', 'Zurich'] 
-        randomnumber = randint(0,len(locations) -1)
-        return locations[randomnumber]
+    def getSetting(self, level):
+        locations = []
+        if level == "city":
+            locations = ['Sydney', 'Berlin', 'Minesoda', 'Melbourne', 'San Francisco', 'Paris', 'Zurich'] 
+        
+            randomnumber = randint(0,len(locations) -1)
+            return locations[randomnumber]
+        elif level == "country":
+            locations = countries
+        
+            randomnumber = randint(0,len(locations) -1)
+            return locations[randomnumber]
+        else:
+            locations = ["out of space"] 
+            randomnumber = randint(0,len(locations) -1)
+            return locations[randomnumber]
+
     
     def getTimeSetting(self):
         return randint(1900,2050)
          
     def getIncitingIncident(self):
-        incidents = [
-            ["Car crash", "losing loved ones"],
-            ["Plane crash", "losing loved ones"], 
-            ["house burning down", "losing important possessions"], 
-            ["An Alien ship arrives", "taking human victims"],
-            ["A baby downs", "causing the mother to panic"],
-            ["being let go", "causing loss of the ability to pay for expenses and creditors"]
-            
-            ]
+        incidents = inciting_incidents
         randomnumber = randint(0,len(incidents) -1)
         return incidents[randomnumber]
       
